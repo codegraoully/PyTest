@@ -29,7 +29,7 @@ attempt = 0
 
 print("--- Hangman Game ---")
 
-# Find a word in the collection
+# Find a random word in the collection
 randomNumber = math.trunc(random.random() * 10)
 
 while randomNumber > 4 or randomNumber < 1:
@@ -48,13 +48,14 @@ while i < len(wordToFind):
 win = False
 while not win:
     clear()
+    clear()
     print("---------------------------------------")
     print(userWord)
     print("---------------------------------------")
     print(vowel)
     print(consonant)
     print("---------------------------------------")
-    userLetter = input("Choose a letter: ")
+    userLetter = input("Choose an available letter: ")
 
     # Remove the letter in the possibilities
     try:
@@ -79,6 +80,7 @@ while not win:
         print("Good, continue.")
         score += 1
     else:
+        print("ok")
         print("Not in this word ! Try again.")
 
     attempt += 1

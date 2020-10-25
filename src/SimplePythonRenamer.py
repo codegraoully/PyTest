@@ -1,16 +1,11 @@
 import os
 
 charToReplace = {'[', ']', '\'', '(', ')'}
-charReplacing = '-'
+charReplacing = '_'
 
 for filename in os.listdir('.'):
 
-    if filename == ".":
-        break
-    if filename == "..":
-        break
-
-    if os.path.isdir(filename):
+    if filename == "." or ".." or os.path.isdir(filename):
         break
 
     newFilename = filename.lower().replace(' ', '_')
