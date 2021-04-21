@@ -40,7 +40,6 @@ while i < len(wordToFind):
 
 # Main game
 print("--- Hangman Game ---")
-score = 0
 attempt = 0
 win = False
 clear()
@@ -68,21 +67,15 @@ while not win:
         Exception
 
     # Find the letter in the word
-    pattern = re.compile(userLetter)
-    matchs = re.finditer(pattern, wordToFind)
-    if matchs:
-        for match in matchs:
-            print("pos:", match.start())
-            userWord[match.start()] = userLetter
-
-        print("Good, continue.")
-        score += 1
-    else:
-        print("ok")
-        print("Not in this word ! Try again.")
+    for letter in wordToFind:
+        if userLetter == letter:
+            print('Good job.')
+            pos = wordToFind.index(letter)
+            userWord[pos] = letter
+            break
 
     attempt += 1
-    print("Your score: ", attempt)
+    print("Attempt: ", attempt)
 
     if "".join(userWord) == wordToFind:
         win = True
