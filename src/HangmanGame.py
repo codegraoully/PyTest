@@ -4,10 +4,10 @@ import random
 import re
 import csv
 
-
 def clear():
     os.system("clear")
 
+# Lecture du dictionnaire utilisateur
 wordList = []
 numberOfWord = 0
 with open('/home/michel/Documents/Projects/Python/src/dictionnaire.txt', newline='') as csvFile:
@@ -15,19 +15,6 @@ with open('/home/michel/Documents/Projects/Python/src/dictionnaire.txt', newline
     for row in line:
         wordList.append(row)
         numberOfWord =+ 1
-
-print(wordList)
-# quit()
-
-# wordList = {1: "renégat",
-#             2: "duel",
-#             3: "fantastique",
-#             4: "truc"}
-
-# helpWordList = {1: "traître",
-#                 2: "combat",
-#                 3: "science fiction",
-#                 4: "machin"}
 
 vowel = ["a", "e", "i", "o", "u", "y"]
 
@@ -100,5 +87,4 @@ while not win:
     if "".join(userWord) == wordToFind:
         win = True
 
-if win:
-    print("Congratulation ! With ", attempt, "try on ", len(wordToFind), " letters.")
+print("Congratulation ! With ", attempt, "try on ", len(wordToFind), " letters.")
