@@ -2,21 +2,32 @@ import math
 import os
 import random
 import re
+import csv
 
 
 def clear():
     os.system("clear")
 
+wordList = []
+numberOfWord = 0
+with open('/home/michel/Documents/Projects/Python/src/dictionnaire.txt', newline='') as csvFile:
+    line = csv.reader(csvFile, delimiter='|')
+    for row in line:
+        wordList.append(row)
+        numberOfWord =+ 1
 
-wordList = {1: "renégat",
-            2: "duel",
-            3: "fantastique",
-            4: "truc"}
+print(wordList)
+# quit()
 
-helpWordList = {1: "traître",
-                2: "combat",
-                3: "science fiction",
-                4: "machin"}
+# wordList = {1: "renégat",
+#             2: "duel",
+#             3: "fantastique",
+#             4: "truc"}
+
+# helpWordList = {1: "traître",
+#                 2: "combat",
+#                 3: "science fiction",
+#                 4: "machin"}
 
 vowel = ["a", "e", "i", "o", "u", "y"]
 
@@ -24,18 +35,22 @@ consonant = ["b", "c", "d", "f", "g", "h",
              "j", "k", "l", "m", "n", "p",
              "q", "r", "s", "t", "v", "w", "x", "z"]
 
+<<<<<<< HEAD
 score = 0
 attempt = 0
 
 print("--- Hangman Game ---")
 
+=======
+>>>>>>> 9b41bb2 (Utilisation d'un dictionnaire)
 # Find a random word in the collection
 randomNumber = math.trunc(random.random() * 10)
 
-while randomNumber > 4 or randomNumber < 1:
+while randomNumber > numberOfWord or randomNumber < 1:
     randomNumber = math.trunc(random.random() * 10)
 
-wordToFind = wordList.get(randomNumber)
+wordToFind = wordList[randomNumber][0]
+wordToFindHelper = wordList[randomNumber][1]
 
 # Init user word
 userWord = []
@@ -45,10 +60,19 @@ while i < len(wordToFind):
     i += 1
 
 # Main game
+print("--- Hangman Game ---")
+score = 0
+attempt = 0
 win = False
+clear()
 while not win:
+<<<<<<< HEAD
     clear()
     clear()
+=======
+    print("---------------------------------------")
+    print('help: ', wordToFindHelper)
+>>>>>>> 9b41bb2 (Utilisation d'un dictionnaire)
     print("---------------------------------------")
     print(userWord)
     print("---------------------------------------")
@@ -84,10 +108,10 @@ while not win:
         print("Not in this word ! Try again.")
 
     attempt += 1
-    print("Your score: ", score, "/", attempt)
+    print("Your score: ", attempt)
 
     if "".join(userWord) == wordToFind:
         win = True
 
 if win:
-    print("Congratulation ! With ", score, "/", attempt)
+    print("Congratulation ! With ", attempt, "try.")
