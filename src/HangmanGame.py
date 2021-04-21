@@ -35,14 +35,6 @@ consonant = ["b", "c", "d", "f", "g", "h",
              "j", "k", "l", "m", "n", "p",
              "q", "r", "s", "t", "v", "w", "x", "z"]
 
-<<<<<<< HEAD
-score = 0
-attempt = 0
-
-print("--- Hangman Game ---")
-
-=======
->>>>>>> 9b41bb2 (Utilisation d'un dictionnaire)
 # Find a random word in the collection
 randomNumber = math.trunc(random.random() * 10)
 
@@ -66,13 +58,8 @@ attempt = 0
 win = False
 clear()
 while not win:
-<<<<<<< HEAD
-    clear()
-    clear()
-=======
     print("---------------------------------------")
     print('help: ', wordToFindHelper)
->>>>>>> 9b41bb2 (Utilisation d'un dictionnaire)
     print("---------------------------------------")
     print(userWord)
     print("---------------------------------------")
@@ -114,4 +101,4 @@ while not win:
         win = True
 
 if win:
-    print("Congratulation ! With ", attempt, "try.")
+    print("Congratulation ! With ", attempt, "try on ", len(wordToFind), " letters.")
